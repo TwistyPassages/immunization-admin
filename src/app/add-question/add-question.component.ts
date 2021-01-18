@@ -19,6 +19,7 @@ export class AddQuestionComponent implements OnInit {
     ])
   });
 
+   answerStyleSelect;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,14 @@ export class AddQuestionComponent implements OnInit {
     this.answers.push(this.formBuilder.control(''));
   }
 
+  changeAnswerStyle(event) {
+    if (event.target.value === 'SelectionList') {
+      this.answerStyleSelect = true;
+
+    } else {
+      this.answerStyleSelect = false;
+    }
+  }
 
   ngOnInit() {}
 

@@ -3,6 +3,9 @@
 
 <form [formGroup]="addQuestionForm" (ngSubmit)="onSubmit()">
 
+				<button class="button" type="submit" [disabled]="!addQuestionForm.valid">Submit</button>
+        <br />
+        <br />
 	<div>
 		<label for="internal">
   Internal Use Only
@@ -41,7 +44,7 @@
 					<label for="answerStyle">
   Answer Style
   </label>
-					<select name="answerStyle" id="answerStyle" formControlName="answerStyle">
+					<select name="answerStyle" id="answerStyle" formControlName="answerStyle" (click)="changeAnswerStyle($event)">
   <option value="YesNo" selected="selected">Yes / No</option>
   <option value="SelectionList">Selection List</option>
   </select>
@@ -50,20 +53,22 @@
 
 				<br />
 
-				<div formArrayName="answers">
-					<button class="button fancy-button" (click)="addAnswer()"><i class="material-icons">library_add</i></button>
+				<div formArrayName="answers" *ngIf=answerStyleSelect>
+				
 
 					<div *ngFor="let answer of answers.controls; let i=index">
 						<!-- The repeated alias template -->
 						<label>
-        Alias:
+        Answer:
         <input type="text" [formControlName]="i">
       </label>
 					</div>
 				</div>
 
 
-				<br />
-				<button class="button" type="submit" [disabled]="!addQuestionForm.valid">Submit</button>
-
 </form>
+<div *ngIf=answerStyleSelect>
+	<button class="button fancy-button" (click)="addAnswer()">
+    <i class="material-icons">library_add</i>
+  </button>
+</div>  
