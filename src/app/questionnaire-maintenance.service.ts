@@ -11,9 +11,11 @@ export class QuestionnaireMaintenanceService {
     this.retrieveCurrentQuestionnaire();
   }
 
-  //  questionnaireURL = 'https://c7ts1melqb.execute-api.ca-central-1.amazonaws.com/development/immunization/questionnaire';
-  questionnaireURL =
-    "https://immunization-admin.stackblitz.io/assets/questionnaire.json";
+//  questionnaireURL = 'https://s3.ca-central-1.amazonaws.com/public.cambian.burnttimber.ca/questionnaire.json';
+  questionnaireURL = 'https://c7ts1melqb.execute-api.ca-central-1.amazonaws.com/development/immunization/questionnaire';
+  //questionnaireURL = "https://immunization-admin.stackblitz.io/assets/questionnaire.json";
+
+
   currentQuestionnaire;
   questions;
 
@@ -24,16 +26,16 @@ export class QuestionnaireMaintenanceService {
 
   addQuestion(question) {
     this.questions.push(question);
-  }
+  }  
 
   getQuestion(questId) {
     for (var i = 0; i < this.questions.length; i++) {
       if (this.questions[i].id == questId) {
         return this.questions[i];
       }
-    }
-  }
-
+    } 
+  } 
+ 
   getQuestionnaireJSON() {
     return JSON.stringify(this.questions, null, 2);
   }
