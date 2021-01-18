@@ -5,49 +5,49 @@
 
 	<div>
 		<label for="internal">
-      Internal Use Only
-    </label>
+  Internal Use Only
+  </label>
 		<input id="internal" type="checkbox" formControlName="internal">
   </div>
 
 		<div>
 			<label for="code">
-      Code
-    </label>
+  Code
+  </label>
 			<input id="code" type="text" formControlName="code">
   </div>
 
 			<div>
 				<label for="category">
-      Category
-    </label>
-				<select name="category" id="category">
-      <option value="Location">Location</option>
-      <option value="Health">Health Complications</option>
-      <option value="Age">Age</option>
-      <option value="Occupation">Occupation</option>
-    </select>
+  Category
+  </label>
+				<select name="category" id="category" formControlName="category">
+  <option value="Location">Location</option>
+  <option value="Health">Health Complications</option>
+  <option value="Age">Age</option>
+  <option value="Occupation">Occupation</option>
+  </select>
 			</div>
 
 			<div>
 				<br />
 				<label for="description">
-      Description
-    </label>
+  Description
+  </label>
 				<input id="description" type="text" formControlName="description" size="100">
   </div>
 
 				<div>
 					<label for="answerStyle">
-      Answer Style
-    </label>
-					<select name="answerStyle" id="answerStyle">
-      <option value="yesNo" selected="selected">Yes / No</option>
-      <option value="selectionList">Selection List</option>
-    </select>
+  Answer Style
+  </label>
+					<select name="answerStyle" id="answerStyle" formControlName="answerStyle">
+  <option value="YesNo" selected="selected">Yes / No</option>
+  <option value="SelectionList">Selection List</option>
+  </select>
 				</div>
 
 				<br />
-				<button class="button" type="submit">Add Question</button>
+				<button class="button" [disabled]="!addQuestionForm.valid" type="submit">Add Question</button>
 
 </form>
