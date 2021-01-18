@@ -14,7 +14,7 @@
 			<label for="code">
   Code
   </label>
-			<input id="code" type="text" formControlName="code">
+			<input id="code" type="text" formControlName="code" required>
   </div>
 
 			<div>
@@ -51,7 +51,7 @@
 <br />
 
 				<div formArrayName="answers">
-					<button class="button fancy-button" (click)="addAlias()"><i class="material-icons">library_add</i></button>
+					<button class="button fancy-button" (click)="addAnswer()"><i class="material-icons">library_add</i></button>
 
 					<div *ngFor="let alias of aliases.controls; let i=index">
 						<!-- The repeated alias template -->
@@ -64,6 +64,6 @@
 
 
 				<br />
-				<button class="button" [disabled]="!addQuestionForm.valid" type="submit">Submit</button>
+				<button class="button" type="submit">Submit</button>
 
 </form>
