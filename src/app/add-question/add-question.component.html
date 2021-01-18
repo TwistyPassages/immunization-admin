@@ -27,7 +27,7 @@
   <option value="Age">Age</option>
   <option value="Occupation">Occupation</option>
   </select>
-			</div> 
+			</div>
 
 			<div>
 				<br />
@@ -48,12 +48,12 @@
 				</div>
 
 
-<br />
+				<br />
 
 				<div formArrayName="answers">
 					<button class="button fancy-button" (click)="addAnswer()"><i class="material-icons">library_add</i></button>
 
-					<div *ngFor="let alias of aliases.controls; let i=index">
+					<div *ngFor="let answer of answers.controls; let i=index">
 						<!-- The repeated alias template -->
 						<label>
         Alias:
@@ -64,6 +64,6 @@
 
 
 				<br />
-				<button class="button" type="submit">Submit</button>
+				<button class="button" type="submit" [disabled]="!addQuestionForm.valid">Submit</button>
 
 </form>

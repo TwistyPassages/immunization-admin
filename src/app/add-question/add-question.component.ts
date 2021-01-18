@@ -14,9 +14,9 @@ export class AddQuestionComponent implements OnInit {
     category: ["", Validators.required],
     description: ["", Validators.required],
     answerStyle: ["", Validators.required],
-    // answers: this.formBuilder.array([
-    //   this.formBuilder.control('')
-    // ])
+    answers: this.formBuilder.array([
+      this.formBuilder.control('')
+    ])
   });
 
 
@@ -25,13 +25,13 @@ export class AddQuestionComponent implements OnInit {
     private questionnaireService: QuestionnaireMaintenanceService
   ) {}
 
-  // get answers() {
-  //   return this.addQuestionForm.get('answers') as FormArray;
-  // }
+  get answers() {
+    return this.addQuestionForm.get('answers') as FormArray;
+  }
 
-  // addAnswer() {
-  //   this.answers.push(this.formBuilder.control(''));
-  // }
+  addAnswer() {
+    this.answers.push(this.formBuilder.control(''));
+  }
 
 
   ngOnInit() {}
