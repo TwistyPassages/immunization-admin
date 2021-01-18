@@ -13,7 +13,7 @@ export class QuestionnaireMaintenanceService {
 
 //  questionnaireURL = 'https://s3.ca-central-1.amazonaws.com/public.cambian.burnttimber.ca/questionnaire.json';
   questionnaireURL = 'https://c7ts1melqb.execute-api.ca-central-1.amazonaws.com/development/immunization/questionnaire';
-  //questionnaireURL = "https://immunization-admin.stackblitz.io/assets/questionnaire.json";
+  //questionnaireURL = "https://immunization-admin.stackblitz.io/assets/questionnaire.json"; 
 
 
   currentQuestionnaire;
@@ -29,12 +29,12 @@ export class QuestionnaireMaintenanceService {
   }  
 
   getQuestion(questId) {
-    for (var i = 0; i < this.questions.length; i++) {
+    for (var i = 0; i < this.questions.length; i++) { 
       if (this.questions[i].id == questId) {
         return this.questions[i];
       }
     } 
-  } 
+  }  
  
   getQuestionnaireJSON() {
     return JSON.stringify(this.questions, null, 2);
@@ -51,7 +51,7 @@ export class QuestionnaireMaintenanceService {
     }
 
     this.questions = modifiedList;
-  }
+  } 
 
   getQuestionnaire() {
     return this.questions;
@@ -70,9 +70,13 @@ export class QuestionnaireMaintenanceService {
 
   // See https://angular.io/guide/http      "Making a POST request"
   //
-  saveQuestionnaire() {
-    return this.http.post<IQuestion[]>(this.questionnaireURL, this.questions);
-  }
+  saveQuestionnaire(jsonBody) {
+    console.log('attempting to save');
+    var putAttempt = this.http.post(this.questionnaireURL, jsonBody);
+    putAttempt.subscribe(function (questFile)  {
+        console.log('Save attempt ' + questFile);
+    });
+  }    
 
   retrieveCurrentQuestionnaire(): Observable<IQuestion[]> {
     if (this.currentQuestionnaire === undefined) {

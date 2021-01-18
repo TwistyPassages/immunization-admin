@@ -17,7 +17,7 @@ export class SaveQuestionnaireComponent implements OnInit {
   }
 
   saveQuestion() {
-    this.questionnaireService.saveQuestionnaire();   
+    this.questionnaireService.saveQuestionnaire(this.jsonText);   
   }
 
 
