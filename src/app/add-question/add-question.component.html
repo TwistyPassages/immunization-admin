@@ -1,1 +1,30 @@
-add-question
+<h3>Add Question</h3>
+
+
+<form [formGroup]="addQuestionForm" (ngSubmit)="onSubmit()">
+ 
+  <div>
+    <label for="code">
+      Code
+    </label>
+    <input id="code" type="text" formControlName="code">
+  </div>
+
+  <div>
+    <label for="internal">
+      Internal Use Only
+    </label>
+    <input id="internal" type="checkbox" formControlName="internal">
+  </div>
+
+  <div>
+    <label for="description">
+      Description
+    </label>
+    <input id="description" type="text" formControlName="description" size="100">
+  </div>
+
+  <br />
+  <button class="button" type="submit">Add Question</button>
+
+</form>
