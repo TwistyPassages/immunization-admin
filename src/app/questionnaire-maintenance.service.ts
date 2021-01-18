@@ -57,21 +57,6 @@ export class QuestionnaireMaintenanceService {
     return this.questions;
   }
 
-  doIt() {
-    // var anItem = this.getQuestion(4);
-    // console.log('Item: ' + anItem.code);
-
-    var currentTime = new Date();
-    var newQuestion = {
-        id: currentTime.getTime(),
-        code: 'FUCKED',
-        description : 'Totally Screwed',
-        internal: false
-    };
-    this.addQuestion(newQuestion);
-
-    return 'hi';
-  }
 
   // See https://angular.io/guide/http      "Making a POST request"
   //
