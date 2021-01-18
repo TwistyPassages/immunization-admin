@@ -2,34 +2,57 @@
 
 
 <form [formGroup]="addQuestionForm" (ngSubmit)="onSubmit()">
- 
-  <div>
-    <label for="code">
-      Code
-    </label>
-    <input id="code" type="text" formControlName="code">
-  </div>
 
-  <div>
-    <label for="internal">
+		<div>
+			<label for="internal">
       Internal Use Only
     </label>
-    <input id="internal" type="checkbox" formControlName="internal">
+			<input id="internal" type="checkbox" formControlName="internal">
   </div>
 
-  <div>
-    <label for="description">
+	<div>
+		<label for="code">
+      Code
+    </label>
+		<input id="code" type="text" formControlName="code">
+  </div>
+
+		<div>
+			<label for="category">
+      Category
+    </label>
+			<select name="category" id="category">
+        <option value="Location">Location</option>
+        <option value="Health">Health Complications</option>
+        <option value="Age">Age</option>
+        <option value="Occupation">Occupation</option>
+      </select>
+		</div>
+
+			<div>
+        <br />
+				<label for="description">
       Description
     </label>
-    <input id="description" type="text" formControlName="description" size="100">
+				<input id="description" type="text" formControlName="description" size="100">
   </div>
 
-  <br />
-  <button class="button" type="submit">Add Question</button>
+				<div>
+					<label for="answerStyle">
+      Answer Style
+    </label>
+					<select name="answerStyle" id="answerStyle">
+      <option value="yesNo" selected="selected">Yes / No</option>
+      <option value="selectionList">Selection List</option>
+    </select>
+				</div>
+
+				<br />
+				<button class="button" type="submit">Add Question</button>
 
 </form>
 
 <br />
 <br />
-<br /> 
+<br />
 <div *ngIf="isSubmitted">{{message}} </div>

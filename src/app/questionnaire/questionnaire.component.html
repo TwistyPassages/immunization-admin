@@ -3,37 +3,140 @@
 <a routerLink="/save-questionnaire" class="button fancy-button"><i class="material-icons">save</i>Save Questionnaire</a>
 
 <table style="width:100%">
-  <tr>
-    <th>Delete</th>
-    <th>Code</th>
-    <th>Is Internal</th>
-    <th>Description</th>
-  </tr>
+	<tr>
+		<th>Delete</th>
+		<th>Code</th>
+		<th>Internal</th>
+		<th>Description</th>
+		<th>Answers</th>
+	</tr>
 
-  <tr *ngFor="let question of getQuestionnaire()">
-    <td>
-      <a (click)="removeQuestion(question.id)" class="button fancy-button"
-        ><i class="material-icons">delete</i></a>
-    </td>
-    <td> 
-      <a
-        [title]="'Question details for the ' + question.code + ' code'"
-        [routerLink]="['/questionnaire', question.id]"
-      >
-        {{ question.code }}
-      </a>
-    </td>
-    <td>{{ question.internal }}</td>
-    <td>{{ question.description }}</td>
-    <td >
-      <table *ngFor="let answer of question.answerOptions">
-        <tr>
-          <td>{{ answer.display }}</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <table></table>
+	<!-- Rows related to Lcoation questions -->
+	<!-- -->
+	<tr *ngFor="let question of getLocationQuestions()">
+		<td>
+			<a (click)="removeQuestion(question.id)"
+				class="button fancy-button"><i class="material-icons">delete</i></a>
+		</td>
+		<td>
+			<a [title]="'Question details for the ' + question.code + ' code'"
+				[routerLink]="['/questionnaire', question.id]">
+				{{ question.code }}
+			</a>
+		</td>
+		<td>
+			<a *ngIf="question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_checked</i></a>
+			<a *ngIf="!question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_unchecked</i></a>
+		<td>{{ question.description }}</td>
+		<td>
+			<table *ngFor="let answer of question.answerOptions">
+				<tr>
+					<td>{{ answer.display }}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+	<!-- Rows related to Age questions -->
+	<!-- -->
+	<tr *ngFor="let question of getAgeQuestions()">
+		<td>
+			<a (click)="removeQuestion(question.id)"
+				class="button fancy-button"><i class="material-icons">delete</i></a>
+		</td>
+		<td>
+			<a [title]="'Question details for the ' + question.code + ' code'"
+				[routerLink]="['/questionnaire', question.id]">
+				{{ question.code }}
+			</a>
+		</td>
+
+		<td>
+			<a *ngIf="question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_checked</i></a>
+			<a *ngIf="!question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_unchecked</i></a>
+		</td>
+
+		<td>{{ question.description }}</td>
+		<td>
+			<table *ngFor="let answer of question.answerOptions">
+				<tr>
+					<td>{{ answer.display }}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+
+	<!-- Rows related to Health questions -->
+	<!-- -->
+	<tr *ngFor="let question of getHealthQuestions()">
+		<td>
+			<a (click)="removeQuestion(question.id)"
+				class="button fancy-button"><i class="material-icons">delete</i></a>
+		</td>
+		<td>
+			<a [title]="'Question details for the ' + question.code + ' code'"
+				[routerLink]="['/questionnaire', question.id]">
+				{{ question.code }}
+			</a>
+		</td>
+		<td>
+			<a *ngIf="question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_checked</i></a>
+			<a *ngIf="!question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_unchecked</i></a>
+		</td>
+		<td>{{ question.description }}</td>
+		<td>
+			<table *ngFor="let answer of question.answerOptions">
+				<tr>
+					<td>{{ answer.display }}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+
+
+	<!-- Rows related to Occupation questions -->
+	<!-- -->
+	<tr *ngFor="let question of getOccupationQuestions()">
+		<td>
+			<a (click)="removeQuestion(question.id)"
+				class="button fancy-button"><i class="material-icons">delete</i></a>
+		</td>
+		<td>
+			<a [title]="'Question details for the ' + question.code + ' code'"
+				[routerLink]="['/questionnaire', question.id]">
+				{{ question.code }}
+			</a>
+		</td>
+		<td>
+			<a *ngIf="question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_checked</i></a>
+			<a *ngIf="!question.internal; "
+				class="button fancy-button"><i class="material-icons">radio_button_unchecked</i></a>
+		</td>
+		<td>{{ question.description }}</td>
+		<td>
+			<table *ngFor="let answer of question.answerOptions">
+				<tr>
+					<td>{{ answer.display }}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+
+
 </table>
 
 <br />
@@ -42,4 +145,3 @@
 <button (click)="reload()">
   Reload
 </button>
-

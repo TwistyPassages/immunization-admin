@@ -8,7 +8,7 @@ import { QuestionnaireMaintenanceService } from '../questionnaire-maintenance.se
 })
 export class SaveQuestionnaireComponent implements OnInit {
 
-  questionnaire = this.questionnaireService.getCurrentQuestionnaire();
+ // questionnaire = this.questionnaireService.getCurrentQuestionnaire();
   jsonText;
 
   constructor(

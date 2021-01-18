@@ -12,7 +12,9 @@ export class AddQuestionComponent implements OnInit {
   addQuestionForm = this.formBuilder.group({
     code: '',
     internal: '',
-    description: ''
+    category: '',
+    description: '',
+    answerStyle: ''
   });
 
   isSubmitted;
@@ -39,9 +41,11 @@ export class AddQuestionComponent implements OnInit {
     var currentTime = new Date();
     var newQuestion = {
         id: currentTime.getTime(),
+        category: "Age",
         code: this.addQuestionForm.get('code').value,
         description : this.addQuestionForm.get('description').value,
-        internal: isInternal
+        internal: isInternal,
+        answerStyle: "yesNo"
     };
     this.questionnaireService.addQuestion(newQuestion);
 

@@ -1,9 +1,11 @@
 [
   {
     "id": 10,
+    "category": "Location",
     "code": "VULNERABLE",
     "description" : "Vulnerable people and people with a significant loss of autonomy who live in residential and long-term care centres (CHSLDs) or in intermediate and family-type resources (RI-RTFs).",
     "internal" : false,
+    "answerStyle": "yesNo",
     "answerOptions": [
          {
             "code" : "true",
@@ -17,9 +19,11 @@
    },
   {
     "id": 2,
+    "category": "Location",
     "code": "SENIOR-HOME",
     "description" : "Autonomous or semi-autonomous people who live in private seniors' homes (RPAs) or in certain closed residential facilities for older adults.",
     "internal" : false,
+    "answerStyle": "yesNo",
     "answerOptions": [
          {
             "code" : "true",
@@ -33,9 +37,11 @@
    },
   {
     "id": 3,
+    "category": "Location",
     "code": "REMOTE",
     "description" : "Isolated and remote communities.",
     "internal" : false,
+    "answerStyle": "yesNo",
     "answerOptions": [
          {
             "code" : "true",
@@ -49,9 +55,11 @@
    },
   {
     "id": 4,
+    "category": "Health",
     "code": "COMPLICATIONS",
     "description" : "Adults who have a chronic disease or health problem that increases the risk of complications of COVID 19",
     "internal" : false,
+    "answerStyle": "yesNo",
     "answerOptions": [
          {
             "code" : "true",
@@ -64,10 +72,66 @@
       ]
    },
   {
+    "id": 20,
+    "category": "Age",
+    "code": "Over60",
+    "description" : "Adults who are over 60 years of age",
+    "internal" : true,
+    "answerStyle": "yesNo",
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 21,
+    "category": "Age",
+    "code": "Over70",
+    "description" : "Adults who are over 70 years of age",
+    "internal" : true,
+    "answerStyle": "yesNo",
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 22,
+    "category": "Age",
+    "code": "Over80",
+    "description" : "Adults who are over 80 years of age",
+    "internal" : true,
+    "answerStyle": "yesNo",
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  { 
     "id": 5,
+    "category": "Occupation",
     "code": "OCCUPATION",
     "description" : "Occupation",
     "internal" : false,
+    "answerStyle": "selectionList",
     "answerOptions": [
          {
             "code" : "PoliceDept",
