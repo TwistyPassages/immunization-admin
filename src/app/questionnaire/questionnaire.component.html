@@ -1,0 +1,38 @@
+<h3>Questionnaire</h3>
+<a routerLink="/question" class="button fancy-button"><i class="material-icons">note_add</i>Add Question</a>
+<a routerLink="/save-questionnaire" class="button fancy-button"><i class="material-icons">save</i>Save Questionnaire</a>
+
+<table style="width:100%">
+  <tr>
+    <th>Delete</th>
+    <th>id</th>
+    <th>Code</th>
+    <th>Is Internal</th>
+    <th>Description</th>
+  </tr>
+
+  <tr *ngFor="let question of getQuestionnaire()">
+    <td>
+      <a (click)="removeQuestion(question.id)" class="button fancy-button"
+        ><i class="material-icons">delete</i></a>
+    </td>
+    <td> 
+      <a
+        [title]="'Question details for the ' + question.code + ' code'"
+        [routerLink]="['/questionnaire', question.id]"
+      >
+        {{ question.code }}
+      </a>
+    </td>
+    <td>{{ question.internal }}</td>
+    <td>{{ question.description }}</td>
+    <td >
+      <table *ngFor="let answer of question.answerOptions">
+        <tr>
+          <td>{{ answer.display }}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <table></table>
+</table>

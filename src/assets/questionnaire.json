@@ -1,0 +1,102 @@
+[
+  {
+    "id": 10,
+    "code": "VULNERABLE",
+    "description" : "Vulnerable people and people with a significant loss of autonomy who live in residential and long-term care centres (CHSLDs) or in intermediate and family-type resources (RI-RTFs).",
+    "internal" : false,
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 2,
+    "code": "SENIOR-HOME",
+    "description" : "Autonomous or semi-autonomous people who live in private seniors' homes (RPAs) or in certain closed residential facilities for older adults.",
+    "internal" : false,
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 3,
+    "code": "REMOTE",
+    "description" : "Isolated and remote communities.",
+    "internal" : false,
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 4,
+    "code": "COMPLICATIONS",
+    "description" : "Adults who have a chronic disease or health problem that increases the risk of complications of COVID 19",
+    "internal" : false,
+    "answerOptions": [
+         {
+            "code" : "true",
+            "display" : "Yes"
+         },
+         {
+            "code" : "false",
+            "display" : "No"
+         }
+      ]
+   },
+  {
+    "id": 5,
+    "code": "OCCUPATION",
+    "description" : "Occupation",
+    "internal" : false,
+    "answerOptions": [
+         {
+            "code" : "PoliceDept",
+            "display" : "Police"
+         },
+         {
+            "code" : "FireDept",
+            "display" : "Fire Department"
+         },
+         {
+            "code" : "Health/Nurse",
+            "display" : "Nurse"
+         },
+         {
+            "code" : "Health/Homecare",
+            "display" : "Homecare"
+         },
+         {
+            "code" : "Health/Doctor",
+            "display" : "Doctor"
+         },
+         {
+            "code" : "Health/Surgeon",
+            "display" : "Surgeon"
+         },
+         {
+            "code" : "Other",
+            "display" : "Other occupation"
+         }
+      ]
+   }
+]
