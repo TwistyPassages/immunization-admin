@@ -28,11 +28,6 @@ export class AddQuestionComponent implements OnInit {
     return this.addQuestionForm.get("answers") as FormArray;
   }
 
-  doit() {
-    console.log("looking at the collected answers");
-    console.log(this.addQuestionForm.get("answers").value);
-  }
-
   addAnswer() {
     this.answers.push(this.formBuilder.control(""));
     console.log("Item " + this.addQuestionForm.get("answers").value[0]);
