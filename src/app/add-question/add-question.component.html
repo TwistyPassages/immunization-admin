@@ -3,34 +3,34 @@
 
 <form [formGroup]="addQuestionForm" (ngSubmit)="onSubmit()">
 
-		<div>
-			<label for="internal">
+	<div>
+		<label for="internal">
       Internal Use Only
     </label>
-			<input id="internal" type="checkbox" formControlName="internal">
-  </div>
-
-	<div>
-		<label for="code">
-      Code
-    </label>
-		<input id="code" type="text" formControlName="code">
+		<input id="internal" type="checkbox" formControlName="internal">
   </div>
 
 		<div>
-			<label for="category">
-      Category
+			<label for="code">
+      Code
     </label>
-			<select name="category" id="category">
-        <option value="Location">Location</option>
-        <option value="Health">Health Complications</option>
-        <option value="Age">Age</option>
-        <option value="Occupation">Occupation</option>
-      </select>
-		</div>
+			<input id="code" type="text" formControlName="code">
+  </div>
 
 			<div>
-        <br />
+				<label for="category">
+      Category
+    </label>
+				<select name="category" id="category">
+      <option value="Location">Location</option>
+      <option value="Health">Health Complications</option>
+      <option value="Age">Age</option>
+      <option value="Occupation">Occupation</option>
+    </select>
+			</div>
+
+			<div>
+				<br />
 				<label for="description">
       Description
     </label>
@@ -51,8 +51,3 @@
 				<button class="button" type="submit">Add Question</button>
 
 </form>
-
-<br />
-<br />
-<br />
-<div *ngIf="isSubmitted">{{message}} </div>

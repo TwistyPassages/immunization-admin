@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { QuestionnaireMaintenanceService } from '../questionnaire-maintenance.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { QuestionnaireMaintenanceService } from '../questionnaire-maintenance.se
 export class AddQuestionComponent implements OnInit {
 
   addQuestionForm = this.formBuilder.group({
-    code: '',
+    code: ['', Validators.required],
     internal: '',
-    category: '',
-    description: '',
+    category: ['', Validators.required],
+    description: ['', Validators.required],
     answerStyle: ''
   });
 
@@ -33,10 +33,17 @@ export class AddQuestionComponent implements OnInit {
 
 
   onSubmit(): void {  
+    console.log('onSubmit()');
     var isInternal = false;
     if (this.addQuestionForm.get('internal').value) {
       isInternal = true;
     }
+
+    var code = this.addQuestionForm.get('code').value;
+    var code = this.addQuestionForm.get('description').value;
+    var code = this.addQuestionForm.get('answerStyle').value;
+
+
 
     var currentTime = new Date();
     var newQuestion = {
