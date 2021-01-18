@@ -26,7 +26,7 @@ export class AddQuestionComponent implements OnInit {
 
 
 
-ngOnInit() {
+  ngOnInit() {
   }
 
 

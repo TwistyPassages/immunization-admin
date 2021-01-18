@@ -23,6 +23,10 @@ export class QuestionnaireComponent implements OnInit {
     
   }
 
+  reload() {
+    this.questionnaireService.reload();
+  }
+
   ngOnInit() {
   }
 }

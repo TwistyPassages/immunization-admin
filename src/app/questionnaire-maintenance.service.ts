@@ -18,6 +18,11 @@ export class QuestionnaireMaintenanceService {
   questions;
   
 
+  reload() {
+    this.currentQuestionnaire = undefined;
+    this.getCurrentQuestionnaire();
+  }
+
   addQuestion(question) {
     this.questions.push(question);
   }
