@@ -14,12 +14,10 @@ export class AddQuestionComponent implements OnInit {
     category: ["", Validators.required],
     description: ["", Validators.required],
     answerStyle: ["", Validators.required],
-    answers: this.formBuilder.array([
-      this.formBuilder.control('')
-    ])
+    answers: this.formBuilder.array([this.formBuilder.control("")])
   });
 
-   answerStyleSelect;
+  answerStyleSelect;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,17 +25,22 @@ export class AddQuestionComponent implements OnInit {
   ) {}
 
   get answers() {
-    return this.addQuestionForm.get('answers') as FormArray;
+    return this.addQuestionForm.get("answers") as FormArray;
+  }
+
+  doit() {
+    console.log("looking at the collected answers");
+    console.log(this.addQuestionForm.get("answers").value);
   }
 
   addAnswer() {
-    this.answers.push(this.formBuilder.control(''));
+    this.answers.push(this.formBuilder.control(""));
+    console.log("Item " + this.addQuestionForm.get("answers").value[0]);
   }
 
   changeAnswerStyle(event) {
-    if (event.target.value === 'SelectionList') {
+    if (event.target.value === "SelectionList") {
       this.answerStyleSelect = true;
-
     } else {
       this.answerStyleSelect = false;
     }
@@ -56,11 +59,11 @@ export class AddQuestionComponent implements OnInit {
     var category = this.addQuestionForm.get("category").value;
     var description = this.addQuestionForm.get("description").value;
     var answerStyle = this.addQuestionForm.get("answerStyle").value;
-    console.log('answer style: ' + answerStyle);
+    console.log("answer style: " + answerStyle);
 
     var answers = [];
-    if (answerStyle === 'YesNo') {
-      console.log('doing it');
+    if (answerStyle === "YesNo") {
+      console.log("doing it");
       answers.push({
         code: "true",
         display: "Yes"
@@ -69,10 +72,18 @@ export class AddQuestionComponent implements OnInit {
         code: "false",
         display: "No"
       });
+    } else {
+      var numAnswers = this.addQuestionForm.get("answers").value.length;
+      for (var i = 0; i < numAnswers; i++) {
+        var definedAnswer = this.addQuestionForm.get("answers").value[i];
+        answers.push({
+          code: definedAnswer,
+          display: definedAnswer
+        });
+      }
     }
 
-console.log(JSON.stringify(answers));
-
+    console.log(JSON.stringify(answers));
 
     var currentTime = new Date();
     var newQuestion = {
@@ -86,10 +97,8 @@ console.log(JSON.stringify(answers));
     };
     this.questionnaireService.addQuestion(newQuestion);
 
-
     // Process checkout data here
     console.warn("Your order has been submitted", this.addQuestionForm.value);
     this.addQuestionForm.reset();
-
   }
 }
