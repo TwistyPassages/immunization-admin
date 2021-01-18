@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators, FormArray } from "@angular/forms";
 import { QuestionnaireMaintenanceService } from "../questionnaire-maintenance.service";
 
 @Component({
@@ -13,7 +13,10 @@ export class AddQuestionComponent implements OnInit {
     internal: "",
     category: ["", Validators.required],
     description: ["", Validators.required],
-    answerStyle: ["", Validators.required]
+    answerStyle: ["", Validators.required],
+    answers: this.formBuilder.array([
+      this.formBuilder.control('')
+    ])
   });
 
 
@@ -21,6 +24,15 @@ export class AddQuestionComponent implements OnInit {
     private formBuilder: FormBuilder,
     private questionnaireService: QuestionnaireMaintenanceService
   ) {}
+
+  get answers() {
+    return this.addQuestionForm.get('answers') as FormArray;
+  }
+
+  addAnswer() {
+    this.answers.push(this.formBuilder.control(''));
+  }
+
 
   ngOnInit() {}
 

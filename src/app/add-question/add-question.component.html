@@ -47,7 +47,23 @@
   </select>
 				</div>
 
+
+<br />
+
+				<div formArrayName="answers">
+					<button class="button fancy-button" (click)="addAlias()"><i class="material-icons">library_add</i></button>
+
+					<div *ngFor="let alias of aliases.controls; let i=index">
+						<!-- The repeated alias template -->
+						<label>
+        Alias:
+        <input type="text" [formControlName]="i">
+      </label>
+					</div>
+				</div>
+
+
 				<br />
-				<button class="button" [disabled]="!addQuestionForm.valid" type="submit">Add Question</button>
+				<button class="button" [disabled]="!addQuestionForm.valid" type="submit">Submit</button>
 
 </form>
