@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, throwError, of, from } from "rxjs";
 import { catchError, retry, map, tap } from "rxjs/operators";
 
-import { IQuestion } from "../iquestion.ts";
+import { IQuestion } from "./IQuestion";
 
 @Injectable()
 export class QuestionnaireMaintenanceService {
